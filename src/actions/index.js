@@ -15,14 +15,15 @@ export function fetchChars() {
   return (dispatch) => {
     dispatch ({ type: LOADING })
     axios
-      .get('https://swapi.co/api/people')
-      .then( response => { console.log(response)
-        // dispatch({
-        //   type: SUCCESS,
-        //   payload: response.data.results
-        // })
+      .get("https://swapi.co/api/people/")
+      .then( response => { 
+        dispatch({
+          type: SUCCESS,
+          payload: response.data.results
+        })
       })
       .catch( err => {
+        console.log(err)
         dispatch({
           type: FAILURE,
           payload: "loading failure..."
