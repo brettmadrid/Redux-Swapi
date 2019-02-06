@@ -5,18 +5,13 @@ import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import thunk from 'redux-thunk'
 import logger from 'redux-logger';
-import rootReducer from "./reducers";
+import starWarsReducer from "./reducers/starWarsReducer";
 
 import App from "./App";
 import "./index.css";
-// needed dependancies
-// applyMiddleware from redux
-// thunk from redux-thunk
-// logger from redux-logger
-// rootReducer from ./reducers
 
 const store = createStore(
-  rootReducer, 
+  starWarsReducer,
   applyMiddleware(thunk, logger)
 );
 
